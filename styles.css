@@ -60,7 +60,7 @@ button:focus-visible {
 
 /* ---------- header / wordmark ---------- */
 .top {
-  padding: 40px 0 8px;
+  padding: 36px 0 26px;
   text-align: center;
 }
 
@@ -129,30 +129,33 @@ button:focus-visible {
   max-width: 340px;
 }
 
-/* stat row */
+/* stat card */
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px 12px;
-  justify-content: start;
-}
-
-.stat {
+  grid-template-columns: 1fr 1fr;
   background: var(--paper);
   border: 1px solid var(--cream-deep);
-  border-radius: 999px;
-  padding: 10px 18px 10px 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 14.5px;
-  color: var(--ink-soft);
-  white-space: nowrap;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
-.stat svg { flex: none; }
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-right: 1px solid var(--cream-deep);
+  border-bottom: 1px solid var(--cream-deep);
+}
 
-.stat b {
+.stat-item:nth-child(2n) { border-right: none; }
+.stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+
+.stat-item svg { flex: none; color: var(--gold-deep); }
+
+.stat-item b {
   color: var(--ink);
   font-family: var(--display);
   font-weight: 700;
@@ -346,14 +349,22 @@ footer {
 @media (max-width: 640px) {
   .wrap { padding: 0 24px; }
   section.block { padding: 44px 0; }
-  .hero { padding: 44px 0 20px; }
-  .stats { grid-template-columns: 1fr; justify-content: stretch; }
-  .stat { white-space: normal; }
+  .top { padding: 28px 0 34px; }
+  .hero { padding: 0 0 20px; }
   .affirmations li:nth-child(odd),
   .affirmations li:nth-child(even) {
     transform: none;
   }
   .cta { padding: 28px 20px; }
+}
+
+@media (max-width: 420px) {
+  .stats { grid-template-columns: 1fr; }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--cream-deep);
+  }
+  .stat-item:last-child { border-bottom: none; }
 }
 
 @media (max-width: 520px) {
