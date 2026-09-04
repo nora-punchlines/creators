@@ -60,7 +60,8 @@ button:focus-visible {
 
 /* ---------- header / wordmark ---------- */
 .top {
-  padding: 36px 0 26px;
+  padding-top: 36px;
+  padding-bottom: 26px;
   text-align: center;
 }
 
@@ -91,7 +92,8 @@ button:focus-visible {
 
 /* ---------- hero ---------- */
 .hero {
-  padding: 56px 0 24px;
+  padding-top: 56px;
+  padding-bottom: 24px;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 48px;
@@ -129,33 +131,29 @@ button:focus-visible {
   max-width: 340px;
 }
 
-/* stat card */
+/* stat pills */
 .stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stat {
   background: var(--paper);
   border: 1px solid var(--cream-deep);
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.stat-item {
-  display: flex;
+  border-radius: 999px;
+  padding: 11px 18px 11px 14px;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 20px;
+  gap: 8px;
   font-size: 14px;
   color: var(--ink-soft);
-  border-right: 1px solid var(--cream-deep);
-  border-bottom: 1px solid var(--cream-deep);
+  white-space: nowrap;
 }
 
-.stat-item:nth-child(2n) { border-right: none; }
-.stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+.stat svg { flex: none; color: var(--gold-deep); }
 
-.stat-item svg { flex: none; color: var(--gold-deep); }
-
-.stat-item b {
+.stat b {
   color: var(--ink);
   font-family: var(--display);
   font-weight: 700;
@@ -176,7 +174,8 @@ button:focus-visible {
 
 /* ---------- sections ---------- */
 section.block {
-  padding: 58px 0;
+  padding-top: 58px;
+  padding-bottom: 58px;
 }
 
 .block h2 {
@@ -348,23 +347,14 @@ footer {
 
 @media (max-width: 640px) {
   .wrap { padding: 0 24px; }
-  section.block { padding: 44px 0; }
-  .top { padding: 28px 0 34px; }
-  .hero { padding: 0 0 20px; }
+  section.block { padding-top: 44px; padding-bottom: 44px; }
+  .top { padding-top: 28px; padding-bottom: 34px; }
+  .hero { padding-top: 0; padding-bottom: 20px; }
   .affirmations li:nth-child(odd),
   .affirmations li:nth-child(even) {
     transform: none;
   }
   .cta { padding: 28px 20px; }
-}
-
-@media (max-width: 420px) {
-  .stats { grid-template-columns: 1fr; }
-  .stat-item {
-    border-right: none;
-    border-bottom: 1px solid var(--cream-deep);
-  }
-  .stat-item:last-child { border-bottom: none; }
 }
 
 @media (max-width: 520px) {
