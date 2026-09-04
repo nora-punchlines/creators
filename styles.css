@@ -340,7 +340,7 @@ footer {
     order: 0;
   }
   .hero-art { order: -1; }
-  .hero-art img { max-width: 220px; }
+  .hero-art img { max-width: 168px; margin: 0 auto; }
   .cta { padding: 34px 26px; border-radius: 22px; }
   .art img { max-width: 200px; }
 }
@@ -348,8 +348,9 @@ footer {
 @media (max-width: 640px) {
   .wrap { padding: 0 24px; }
   section.block { padding-top: 44px; padding-bottom: 44px; }
-  .top { padding-top: 28px; padding-bottom: 34px; }
-  .hero { padding-top: 0; padding-bottom: 20px; }
+  .top { padding-top: 28px; padding-bottom: 24px; }
+  .hero { padding-top: 0; padding-bottom: 20px; gap: 36px; }
+  .hero-art img { transform: translateX(-14px); }
   .affirmations li:nth-child(odd),
   .affirmations li:nth-child(even) {
     transform: none;
