@@ -3,177 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lydia en vrai × Punchlines — Une collab à ton image</title>
-<meta name="description" content="Punchlines invite Lydia en vrai à rejoindre l'aventure : collab régulière, collection d'affirmations personnalisée et rémunération évolutive.">
+<title>Punchlines × Creators</title>
+<meta name="description" content="Punchlines collabore avec des créatrices et créateurs pour développer la pratique des affirmations positives.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,500&family=Caveat:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #eeebe6;
+    --cream-deep: #e0dbd0;
+    --paper: #fbfaf6;
+    --ink: #343434;
+    --ink-soft: #55503f;
+    --gold-deep: #4e8b99;
+    --serif: "Fraunces", "Iowan Old Style", serif;
+    --display: "Baloo 2", sans-serif;
+    --body: "Inter", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 32px;
+    width: 100%;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .content {
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+  }
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    width: 60px;
+    transform: rotate(8deg);
+  }
+  .logo {
+    height: 56px;
+    display: block;
+    margin: 0 auto 44px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(30px, 4.6vw, 40px);
+    line-height: 1.15;
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+  p {
+    color: var(--ink-soft);
+    font-size: 18px;
+    max-width: 48ch;
+    margin: 0 auto 16px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    padding: 15px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--display);
+    text-decoration: none;
+    margin-top: 32px;
+  }
+  .stores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 40px;
+  }
+  .stores span {
+    font-size: 12px;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+  .store-icon {
+    color: var(--ink-soft);
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+  }
+  .store-icon:hover { opacity: 1; }
+  footer {
+    text-align: center;
+    padding: 24px 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 480px) {
+    .badge { width: 48px; top: 0; right: 0; }
+    .logo { height: 44px; }
+  }
+</style>
 </head>
 <body>
 
-<header class="top wrap">
-  <div class="wordmark">
-    <img src="images/lydiaenvrai_logo.png" alt="Lydia en vrai" class="logo-img">
-    <span class="x">×</span>
-    <span class="punch">Punch<br>lines.</span>
-  </div>
-</header>
-
 <main>
-
-  <!-- HERO -->
-  <section class="hero wrap">
-    <div class="copy">
-      <h1>Bienvenue,<br>Lydia.</h1>
-      <p class="lede">
-        Punchlines est une application pensée pour ancrer la pratique des affirmations
-        dans une vraie habitude. <strong>Épurée, minimaliste</strong>, et pensée pour que
-        chaque personne se l'approprie à son rythme.
+  <div class="wrap">
+    <div class="content">
+      <img src="images/badge_ambassadeur.png" alt="" class="badge">
+      <img src="images/punchlines_logo.png" alt="Punchlines" class="logo">
+      <h1>Le pouvoir de tes pensées, une punchline à la fois.</h1>
+      <p>
+        Punchlines est une application d'affirmations positives : quelques phrases
+        courtes et sincères, pensées pour ancrer une nouvelle façon de te parler
+        à toi-même, jour après jour.
       </p>
-      <div class="stats">
-        <span class="stat">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
-          <b>+130 000</b> téléchargements
-        </span>
-        <span class="stat">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9"/></svg>
-          <b>4.8/5</b> · 2 500 avis
-        </span>
-        <span class="stat">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <b>+15 000</b> affirmations partagées
-        </span>
-        <span class="stat">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Lancée en <b>mai 2025</b>
-        </span>
-      </div>
-      <p class="lede ambass">
-        Nous souhaitons collaborer avec des ambassadeurs et ambassadrices pour
-        développer encore plus le projet. On te laissera découvrir cela via un
-        <strong>accès premium offert</strong> — et en cas de besoin, on est bien sûr
-        disponible pour échanger avec toi et répondre à toutes tes questions.
+      <p>
+        On collabore avec des créatrices et créateurs qui partagent notre vision.
       </p>
-    </div>
-    <div class="hero-art">
-      <img src="images/bienvenue.png" alt="Illustration d'un personnage saluant, entouré d'étincelles, disant Lydiaaa">
-    </div>
-  </section>
 
-  <div class="divider" aria-hidden="true">
-    <svg width="140" height="18" viewBox="0 0 140 18" fill="none" stroke="currentColor" stroke-width="1.6">
-      <path d="M2 9c8-8 14 8 22 0s14 8 22 0 14 8 22 0 14 8 22 0 14 8 22 0 14 8 22 0" stroke-linecap="round"/>
-    </svg>
+      <a class="cta-btn" href="https://calendly.com/thepunchlines-app/30min" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Réserver un appel avec l'équipe
+      </a>
+
+      <div class="stores">
+        <span>Disponible sur</span>
+        <a class="store-icon" href="https://apps.apple.com/app/apple-store/id6744821000?pt=125279170&ct=website&mt=8" target="_blank" rel="noopener" aria-label="App Store">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.536c-.03-3.06 2.497-4.53 2.61-4.6-1.424-2.08-3.636-2.365-4.42-2.398-1.883-.19-3.674 1.11-4.63 1.11-.958 0-2.428-1.083-3.99-1.053-2.053.03-3.944 1.194-5 3.037-2.133 3.698-.546 9.176 1.532 12.18 1.017 1.47 2.23 3.116 3.82 3.057 1.535-.062 2.114-.98 3.97-.98 1.856 0 2.38.98 4 .95 1.653-.03 2.7-1.5 3.71-2.98 1.17-1.71 1.65-3.37 1.68-3.45-.037-.017-3.22-1.237-3.25-4.9zM14.24 3.66c.84-1.02 1.41-2.44 1.25-3.86-1.21.05-2.68.81-3.55 1.83-.78.9-1.47 2.35-1.28 3.73 1.35.1 2.73-.68 3.58-1.7z"/></svg>
+        </a>
+        <a class="store-icon" href="https://play.google.com/store/apps/details?id=fr.harryjmg.punchlines" target="_blank" rel="noopener" aria-label="Google Play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.35.35-.55.85-.55 1.5v15.8c0 .65.2 1.15.55 1.5l.1.08L12.6 12v-.2L3.7 2.52l-.1.08z"/><path d="M15.5 15l-2.9-2.9v-.2l2.9-2.9.07.04 3.44 1.96c.98.56.98 1.44 0 2l-3.44 1.96-.07.04z"/><path d="M15.57 14.96 12.6 12 3.7 21.48c.34.36.9.4 1.53.05l10.34-6.57"/><path d="M15.57 9.04 5.23 2.47c-.63-.35-1.19-.3-1.53.06L12.6 12l2.97-2.96z"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
-
-  <!-- COLLAB -->
-  <section class="block wrap" id="collab">
-    <div class="split reverse">
-      <div class="art">
-        <img src="images/handshake2.png" alt="Illustration de deux personnages se serrant la main, l'un portant une couronne">
-      </div>
-      <div class="copy">
-        <h2>À quoi ressemblerait une collab Lydia x Punchlines ?</h2>
-        <p>
-          <strong>Une aventure sur la durée.</strong> On te propose une collaboration
-          régulière, avec des revenus stables et évolutifs, qui s'intègre à ton contenu —
-          pas l'inverse.
-        </p>
-        <p>
-          Selon ce qu'on arrive à atteindre ensemble, on peut fixer des objectifs
-          récurrents et créer une stabilité confortable, chez toi comme chez nous.
-        </p>
-        <p>
-          Pas de script, pas de consignes trop sophistiquées : on veut que tu puisses
-          parler de ton histoire, de tes envies et de tes objectifs, à ta façon. Tu gardes
-          la main sur ton style et ta manière de communiquer avec ta communauté — on se
-          met simplement d'accord ensemble sur un objectif de reach réaliste par rapport
-          à tes chiffres actuels.
-        </p>
-        <p>
-          Côté rémunération : elle est pensée pour être stable et évolutive. Plus la
-          collab grandit avec nous, plus elle évolue avec toi. On en parle en détail
-          lors de l'appel.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider" aria-hidden="true">
-    <svg width="140" height="18" viewBox="0 0 140 18" fill="none" stroke="currentColor" stroke-width="1.6">
-      <path d="M2 9c8-8 14 8 22 0s14 8 22 0 14 8 22 0 14 8 22 0 14 8 22 0 14 8 22 0" stroke-linecap="round"/>
-    </svg>
-  </div>
-
-  <!-- COLLECTION -->
-  <section class="block wrap" id="collection">
-    <div class="split">
-      <div class="copy">
-        <h2>Ta propre collection</h2>
-        <p>
-          Nous avons créé une <strong>collection spéciale à ton image</strong>, à mettre
-          en avant directement dans ton contenu. C'est aussi grâce à elle qu'on pourra
-          suivre ensemble les résultats de la collab.
-        </p>
-        <p>Voici notre suggestion pour la collection Lydia en vrai :</p>
-        <ul class="affirmations">
-          <li>Je vais en faire la meilleure décision de ma vie.</li>
-          <li>Être perdue ne veut pas dire que je me trompe de chemin.</li>
-          <li>Le simple et l'efficace valent mieux que le parfait et l'impressionnant.</li>
-          <li>J'agis aujourd'hui comme la version de moi que je veux devenir.</li>
-          <li>Une émotion est un signal, pas un ordre à suivre.</li>
-        </ul>
-        <p class="note">
-          Tu es évidemment libre de la réécrire toi-même pour qu'elle te corresponde à
-          100&nbsp;%. Une collection peut être composée de 5 affirmations ou plus.
-        </p>
-      </div>
-      <div class="art">
-        <img src="images/illu_collection_lydia.png" alt="Aperçu de l'écran de l'application montrant la collection Lydia en vrai × Punchlines">
-      </div>
-    </div>
-  </section>
-
-  <div class="divider" aria-hidden="true">
-    <svg width="140" height="18" viewBox="0 0 140 18" fill="none" stroke="currentColor" stroke-width="1.6">
-      <path d="M2 9c8-8 14 8 22 0s14 8 22 0 14 8 22 0 14 8 22 0 14 8 22 0 14 8 22 0" stroke-linecap="round"/>
-    </svg>
-  </div>
-
-  <!-- CTA -->
-  <section class="block wrap" id="commencer">
-    <div class="cta">
-      <div class="copy">
-        <h2>Commencer l'aventure</h2>
-        <p>
-          Si tu te sens alignée avec le projet et que tu veux tenter l'aventure, tu peux
-          réserver un appel avec l'équipe. On répondra à toutes tes questions, et on
-          parlera ensemble des détails de la collaboration, de la rémunération du premier
-          mois (période d'essai) et des perspectives d'évolution à nos côtés.
-        </p>
-        <span class="deadline">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
-          Places limitées pour la première campagne — avant le 15 septembre
-        </span>
-        <p class="note">Passé cette date, on pourra te recontacter pour la campagne suivante.</p>
-        <p class="sign">
-          <span class="sign-line">On espère t'avoir parmi nous !</span><br>
-          <span class="sign-name">Harry de Punchlines.</span>
-        </p>
-      </div>
-      <div class="art">
-        <img src="images/meditation.png" alt="Illustration d'un personnage assis en tailleur, les bras levés en signe de force">
-        <a class="btn" href="https://calendly.com/thepunchlines-app/30min" target="_blank" rel="noopener">Réserver un appel avec l'équipe</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<footer class="wrap">
-  Lydia en vrai × Punchlines
-</footer>
+<footer>Punchlines</footer>
 
 </body>
 </html>
