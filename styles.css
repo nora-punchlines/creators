@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -128,15 +130,11 @@ button:focus-visible {
 }
 
 /* stat row */
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.stats-row.center {
-  justify-content: center;
-  margin-top: 10px;
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 12px;
+  justify-content: start;
 }
 
 .stat {
@@ -149,6 +147,7 @@ button:focus-visible {
   gap: 9px;
   font-size: 14.5px;
   color: var(--ink-soft);
+  white-space: nowrap;
 }
 
 .stat svg { flex: none; }
@@ -344,8 +343,22 @@ footer {
   .art img { max-width: 200px; }
 }
 
+@media (max-width: 640px) {
+  .wrap { padding: 0 24px; }
+  section.block { padding: 44px 0; }
+  .hero { padding: 44px 0 20px; }
+  .stats { grid-template-columns: 1fr; justify-content: stretch; }
+  .stat { white-space: normal; }
+  .affirmations li:nth-child(odd),
+  .affirmations li:nth-child(even) {
+    transform: none;
+  }
+  .cta { padding: 28px 20px; }
+}
+
 @media (max-width: 520px) {
   .wrap { padding: 0 20px; }
-  .wordmark .lydia { font-size: 22px; }
-  .wordmark .punch { font-size: 19px; }
+  .wordmark .logo-img { height: 26px; }
+  .wordmark .punch { font-size: 17px; }
+  .wordmark .x { font-size: 15px; }
 }
