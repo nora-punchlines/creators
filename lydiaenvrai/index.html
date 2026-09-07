@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,500&family=Caveat:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=27">
 </head>
 <body>
 
@@ -150,10 +150,16 @@
   <!-- CTA -->
   <section class="block wrap" id="commencer">
     <div class="cta">
+      <div class="art">
+        <img src="images/meditation.png" alt="Illustration d'un personnage assis en tailleur, les bras levés en signe de force">
+      </div>
+
       <h2>Next step</h2>
       <p class="cta-intro">Voici comment avancer, étape par étape :</p>
 
-      <ol class="steps">
+      <div class="steps-wrap">
+        <div class="steps-line" aria-hidden="true"></div>
+        <ol class="steps">
         <li class="step">
           <span class="step-num">1</span>
           <div class="step-body">
@@ -174,7 +180,7 @@
           <span class="step-num">2</span>
           <div class="step-body">
             <h3>Débloque ton accès premium</h3>
-            <p>Découvre ta collection à ton effigie avec le code ci-dessous.</p>
+            <p>Profite d'un accès premium offert et découvre ta collection à ton effigie avec le code ci-dessous.</p>
             <div class="promo">
               <button type="button" id="revealCode" class="promo-reveal">Afficher mon code</button>
               <div class="promo-code-row" id="promoCodeRow" hidden>
@@ -199,20 +205,21 @@
         <li class="step">
           <span class="step-num">4</span>
           <div class="step-body">
-            <h3>Dis-nous ce que tu en penses</h3>
-            <p>Si tu te sens alignée avec le projet, réponds à notre mail et on programme la suite ensemble.</p>
+            <h3>Le courant passe ?</h3>
+            <p>Si tu te sens alignée avec le projet, tu peux répondre à notre mail et on programme la suite ensemble.</p>
           </div>
         </li>
       </ol>
+        <div class="steps-arrow" id="stepsArrow" aria-hidden="true">
+          <svg width="13" height="7" viewBox="0 0 13 7"><polyline points="1 1 6.5 6 12 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="infinity-note" id="infinityNote">vers l'infini et l'au-delà</p>
+      </div>
 
       <p class="sign">
         <span class="sign-line">On espère t'avoir parmi nous !</span><br>
         <span class="sign-name">Harry de Punchlines.</span>
       </p>
-
-      <div class="art">
-        <img src="images/meditation.png" alt="Illustration d'un personnage assis en tailleur, les bras levés en signe de force">
-      </div>
     </div>
   </section>
 
@@ -221,6 +228,49 @@
 <footer class="wrap">
   Lydia en vrai × Punchlines
 </footer>
+
+<script>
+  (function () {
+    function positionStepsLine() {
+      var wrap = document.querySelector('.steps-wrap');
+      var line = document.querySelector('.steps-line');
+      var arrow = document.getElementById('stepsArrow');
+      var note = document.getElementById('infinityNote');
+      var nums = document.querySelectorAll('.step-num');
+      var lastLi = document.querySelector('.steps li.step:last-child');
+      if (!wrap || !line || !nums.length || !lastLi) return;
+
+      var wrapRect = wrap.getBoundingClientRect();
+      var firstRect = nums[0].getBoundingClientRect();
+      var lastLiRect = lastLi.getBoundingClientRect();
+
+      var firstCenter = firstRect.top + firstRect.height / 2 - wrapRect.top;
+      var lastBottom = lastLiRect.bottom - wrapRect.top;
+      var tail = 26;
+      var arrowY = lastBottom + tail;
+
+      line.style.top = firstCenter + 'px';
+      line.style.height = (arrowY - firstCenter) + 'px';
+
+      if (arrow) {
+        arrow.style.top = arrowY + 'px';
+      }
+      if (note) {
+        note.style.top = (arrowY + 18) + 'px';
+      }
+
+      wrap.style.paddingBottom = (tail + 44) + 'px';
+    }
+
+    window.addEventListener('load', positionStepsLine);
+    window.addEventListener('resize', positionStepsLine);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(positionStepsLine);
+    }
+    setTimeout(positionStepsLine, 300);
+    window.positionStepsLine = positionStepsLine;
+  })();
+</script>
 
 <script>
   (function () {
@@ -282,6 +332,9 @@
       revealBtn.hidden = true;
       promoCodeRow.hidden = false;
       burstConfetti(promoCodeRow);
+      if (window.positionStepsLine) {
+        requestAnimationFrame(window.positionStepsLine);
+      }
     });
 
     if (copyBtn) {
