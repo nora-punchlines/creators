@@ -309,8 +309,8 @@ section.block {
 }
 
 .cta h2 { grid-column: 1; grid-row: 1; max-width: 18ch; align-self: start; }
-.cta .cta-intro { grid-column: 1; grid-row: 2; }
-.cta .stores { grid-column: 1; grid-row: 3; }
+.cta .cta-intro { grid-column: 1; grid-row: 2; margin-top: 8px; }
+.cta .steps { grid-column: 1; grid-row: 3; }
 .cta .sign { grid-column: 1; grid-row: 4; }
 .cta .art {
   grid-column: 2;
@@ -318,7 +318,53 @@ section.block {
   align-self: center;
 }
 
-.cta .art img { max-width: 220px; }
+.cta .art img { max-width: 220px; margin: 0 auto; display: block; }
+
+/* steps */
+.steps {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 28px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-deep);
+  color: var(--gold-deep);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.step-body h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.step-body p {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  margin: 0;
+  max-width: 52ch;
+}
 
 .deadline {
   display: inline-flex;
@@ -337,15 +383,18 @@ section.block {
 .promo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-top: 6px;
-  text-align: center;
+  gap: 12px;
+  margin-top: 14px;
 }
 
-.promo-label {
-  font-size: 13px;
-  color: var(--ink-soft);
+.promo-code-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.promo-code-row[hidden] {
+  display: none;
 }
 
 .promo-code {
@@ -356,11 +405,36 @@ section.block {
   background: var(--cream);
   border: 1px dashed var(--cream-deep);
   border-radius: 8px;
-  padding: 5px 12px;
+  padding: 8px 14px;
   letter-spacing: 0.02em;
 }
 
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.copy-btn:hover {
+  background: var(--gold-deep);
+  transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+  background: var(--gold-deep);
+}
+
 .promo-reveal {
+  align-self: flex-start;
   font-family: var(--display);
   font-weight: 600;
   font-size: 14px;
@@ -380,29 +454,26 @@ section.block {
 
 .stores {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.store-btn {
-  display: inline-flex;
   align-items: center;
-  gap: 9px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 14.5px;
-  text-decoration: none;
-  padding: 13px 20px;
-  border-radius: 999px;
-  transition: transform 0.15s ease, background 0.15s ease;
+  gap: 14px;
+  margin-top: 14px;
 }
 
-.store-btn:hover {
-  background: var(--gold-deep);
-  transform: translateY(-1px);
+.stores-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+.store-icon {
+  color: var(--ink-soft);
+  opacity: 0.6;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.store-icon:hover {
+  opacity: 1;
+  color: var(--gold-deep);
 }
 
 .cta .art {
@@ -455,7 +526,7 @@ footer {
   .cta { padding: 34px 26px; border-radius: 22px; }
   .cta h2,
   .cta .cta-intro,
-  .cta .stores,
+  .cta .steps,
   .cta .sign,
   .cta .art {
     grid-column: 1;
