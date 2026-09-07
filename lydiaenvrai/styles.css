@@ -1,5 +1,5 @@
 /* ---------------------------------------------------
-   Lydia en vrai × Punchlines — collab pitch page
+   Lydia en vrai × Punchlines – collab pitch page
 --------------------------------------------------- */
 
 :root {
@@ -133,6 +133,7 @@ button:focus-visible {
 
 /* stat pills */
 .stats {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -206,8 +207,8 @@ section.block {
 .split.reverse {
   grid-template-columns: 0.9fr 1.3fr;
 }
-.split.reverse .art { order: 2; }
-.split.reverse .copy { order: 1; }
+.split.reverse .art { order: 1; }
+.split.reverse .copy { order: 2; }
 
 .art img {
   max-width: 280px;
@@ -236,8 +237,56 @@ section.block {
 .affirmations li:nth-child(odd)  { transform: rotate(-0.6deg); }
 .affirmations li:nth-child(even) { transform: rotate(0.5deg); }
 
+/* scannable bullet list */
+.bullets {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold-deep);
+  opacity: 0.15;
+}
+
+.bullets li::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid var(--gold-deep);
+  border-bottom: 2px solid var(--gold-deep);
+  transform: rotate(-45deg);
+}
+
+#collection .teaser {
+  margin-top: 28px;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .note {
-  margin-top: 26px;
+  margin-top: 12px;
   font-size: 15px;
   color: var(--ink-soft);
 }
@@ -276,20 +325,73 @@ section.block {
   margin: 6px 0 22px;
 }
 
-.btn {
-  display: inline-block;
+.promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.promo-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.promo-code {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px dashed var(--cream-deep);
+  border-radius: 8px;
+  padding: 5px 12px;
+  letter-spacing: 0.02em;
+}
+
+.promo-reveal {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--paper);
+  background: var(--ink);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.promo-reveal:hover {
+  background: var(--gold-deep);
+  transform: translateY(-1px);
+}
+
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   background: var(--ink);
   color: var(--paper);
   font-family: var(--display);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14.5px;
   text-decoration: none;
-  padding: 15px 30px;
+  padding: 13px 20px;
   border-radius: 999px;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
-.btn:hover {
+.store-btn:hover {
   background: var(--gold-deep);
   transform: translateY(-1px);
 }
@@ -298,11 +400,11 @@ section.block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
+  gap: 24px;
 }
 
-.sign {
-  margin-top: 34px;
+.cta .sign {
+  margin-top: 40px;
   font-size: 16px;
   line-height: 1.7;
   color: var(--ink-soft);
