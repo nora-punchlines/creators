@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fraunces:ital,wght@0,600;0,700;1,500&family=Caveat:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=27">
+<link rel="stylesheet" href="styles.css?v=31">
 </head>
 <body>
 
@@ -210,10 +210,14 @@
           </div>
         </li>
       </ol>
-        <div class="steps-arrow" id="stepsArrow" aria-hidden="true">
-          <svg width="13" height="7" viewBox="0 0 13 7"><polyline points="1 1 6.5 6 12 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="steps-tail">
+          <svg class="tail-arrow" width="13" height="24" viewBox="0 0 13 24" aria-hidden="true">
+            <line x1="6.5" y1="0" x2="6.5" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="6.5" y1="17" x2="1" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="6.5" y1="17" x2="12" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <p class="infinity-note">(vers l'infini et l'au-delà)</p>
         </div>
-        <p class="infinity-note" id="infinityNote">vers l'infini et l'au-delà</p>
       </div>
 
       <p class="sign">
@@ -234,8 +238,6 @@
     function positionStepsLine() {
       var wrap = document.querySelector('.steps-wrap');
       var line = document.querySelector('.steps-line');
-      var arrow = document.getElementById('stepsArrow');
-      var note = document.getElementById('infinityNote');
       var nums = document.querySelectorAll('.step-num');
       var lastLi = document.querySelector('.steps li.step:last-child');
       if (!wrap || !line || !nums.length || !lastLi) return;
@@ -246,20 +248,9 @@
 
       var firstCenter = firstRect.top + firstRect.height / 2 - wrapRect.top;
       var lastBottom = lastLiRect.bottom - wrapRect.top;
-      var tail = 26;
-      var arrowY = lastBottom + tail;
 
       line.style.top = firstCenter + 'px';
-      line.style.height = (arrowY - firstCenter) + 'px';
-
-      if (arrow) {
-        arrow.style.top = arrowY + 'px';
-      }
-      if (note) {
-        note.style.top = (arrowY + 18) + 'px';
-      }
-
-      wrap.style.paddingBottom = (tail + 44) + 'px';
+      line.style.height = (lastBottom - firstCenter) + 'px';
     }
 
     window.addEventListener('load', positionStepsLine);
