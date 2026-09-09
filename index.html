@@ -49,14 +49,6 @@
   .content {
     padding: 60px 0;
     text-align: center;
-    position: relative;
-  }
-  .badge {
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    width: 60px;
-    transform: rotate(8deg);
   }
   .logo {
     height: 56px;
@@ -90,6 +82,11 @@
     font-family: var(--display);
     text-decoration: none;
     margin-top: 32px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .cta-btn:hover {
+    background: var(--gold-deep);
+    transform: translateY(-1px);
   }
   .stores {
     display: flex;
@@ -116,7 +113,6 @@
     color: var(--ink-soft);
   }
   @media (max-width: 480px) {
-    .badge { width: 48px; top: 0; right: 0; }
     .logo { height: 44px; }
   }
 </style>
@@ -126,8 +122,7 @@
 <main>
   <div class="wrap">
     <div class="content">
-      <img src="images/badge_ambassadeur.png" alt="" class="badge">
-      <img src="images/punchlines_logo.png" alt="Punchlines" class="logo">
+      <img src="images/punchlines_logo.png" alt="Punchlines" class="logo" onerror="this.style.display='none'">
       <h1>Le pouvoir de tes pensées, une punchline à la fois.</h1>
       <p>
         Punchlines est une application d'affirmations positives : quelques phrases
