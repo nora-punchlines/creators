@@ -28,6 +28,7 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23343434' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2c1 5 5 9 10 10-5 1-9 5-10 10-1-5-5-9-10-10 5-1 9-5 10-10z'/%3E%3C/svg%3E") 11 11, auto;
   }
 
   body {
@@ -96,35 +97,43 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px 36px;
-    margin: 38px 0 6px;
+    gap: 34px 44px;
+    margin: 42px 0 6px;
   }
   .stat {
     text-align: center;
-    min-width: 92px;
+    min-width: 100px;
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(8px);
+    transition: opacity 0.65s ease, filter 0.65s ease, transform 0.65s ease;
   }
+  .stats.in .stat { opacity: 1; filter: blur(0); transform: translateY(0); }
+  .stats.in .stat:nth-child(2) { transition-delay: 0.08s; }
+  .stats.in .stat:nth-child(3) { transition-delay: 0.16s; }
+  .stats.in .stat:nth-child(4) { transition-delay: 0.24s; }
   .stat b {
     display: block;
     font-family: var(--serif);
     font-weight: 700;
-    font-size: 24px;
+    font-size: 30px;
     color: var(--gold-deep);
   }
   .stat span {
     display: block;
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: var(--ink-soft);
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
   /* ---------- meditation illustration ---------- */
   .meditation-art {
     display: flex;
     justify-content: center;
-    padding: 22px 0 6px;
+    margin: 50px 0 34px;
   }
   .meditation-art img {
-    width: 148px;
+    width: 190px;
     height: auto;
   }
 
@@ -184,8 +193,8 @@
     top: 8px;
     width: 8px;
     height: 5px;
-    border-left: 2px solid var(--paper);
-    border-bottom: 2px solid var(--paper);
+    border-left: 2px solid var(--gold-deep);
+    border-bottom: 2px solid var(--gold-deep);
     transform: rotate(-45deg);
   }
 
@@ -349,15 +358,15 @@
   /* ---------- footer ---------- */
   footer {
     text-align: center;
-    padding: 10px 0 90px;
+    padding: 44px 0 90px;
   }
   footer p {
     font-size: 17px;
     color: var(--ink);
-    margin: 0 0 6px;
+    margin: 0 0 10px;
     line-height: 1.5;
   }
-  footer p:last-child { margin-bottom: 0; }
+  footer p:last-child { margin-bottom: 0; margin-top: 4px; }
   footer .sign {
     font-family: var(--serif);
     font-style: italic;
@@ -368,7 +377,7 @@
     align-items: center;
     justify-content: center;
     gap: 14px;
-    margin: 34px 0 4px;
+    margin: 54px 0 0;
   }
   .stores-label {
     font-size: 13px;
@@ -413,10 +422,6 @@
       <div class="stat"><b>Mai 2025</b><span>lancement</span></div>
     </div>
   </section>
-
-  <div class="meditation-art">
-    <img src="images/meditation.png" alt="Illustration d'un personnage assis en tailleur, les bras levés en signe de force">
-  </div>
 
   <div class="divider" aria-hidden="true">
     <svg width="120" height="16" viewBox="0 0 140 18" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -487,6 +492,10 @@
     </p>
   </div>
 
+  <div class="meditation-art">
+    <img src="images/meditation.png" alt="Illustration d'un personnage assis en tailleur, les bras levés en signe de force">
+  </div>
+
   <div class="next-card">
     <h2>Next step : tester l'appli</h2>
     <p>
@@ -519,6 +528,15 @@
   <p>À bientôt,</p>
   <p class="sign">Harry &amp; l'équipe Punchlines</p>
 </footer>
+
+<script>
+  window.addEventListener('load', function () {
+    requestAnimationFrame(function () {
+      var stats = document.querySelector('.stats');
+      if (stats) stats.classList.add('in');
+    });
+  });
+</script>
 
 <script>
   (function () {
