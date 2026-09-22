@@ -55,25 +55,20 @@
 
   /* ---------- header ---------- */
   header.top {
-    padding: 30px 0 10px;
+    padding: 34px 0 6px;
   }
   header.top .bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: center;
   }
-  header.top img.logo {
-    height: 26px;
-    width: auto;
-  }
-  header.top .tag {
+  .punch-logo {
     font-family: var(--display);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--ink-soft);
-    white-space: nowrap;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.05;
+    text-align: center;
+    color: var(--ink);
   }
 
   /* ---------- hero ---------- */
@@ -129,7 +124,7 @@
     padding: 22px 0 6px;
   }
   .meditation-art img {
-    width: 108px;
+    width: 148px;
     height: auto;
   }
 
@@ -141,9 +136,12 @@
     color: var(--cream-deep);
   }
 
-  /* ---------- propose section ---------- */
+  /* ---------- propose section (dark card) ---------- */
   .propose {
-    padding: 8px 0 10px;
+    background: var(--ink);
+    border-radius: 24px;
+    padding: 44px 32px 40px;
+    margin: 8px 0 34px;
   }
   .propose h2 {
     font-family: var(--display);
@@ -151,7 +149,7 @@
     font-size: 22px;
     text-align: center;
     margin: 0 0 26px;
-    color: var(--ink);
+    color: var(--paper);
   }
   .bullets {
     list-style: none;
@@ -165,7 +163,7 @@
     position: relative;
     padding-left: 30px;
     font-size: 15.5px;
-    color: var(--ink);
+    color: var(--paper);
     line-height: 1.5;
   }
   .bullets li::before {
@@ -177,7 +175,7 @@
     height: 18px;
     border-radius: 50%;
     background: var(--gold-deep);
-    opacity: 0.15;
+    opacity: 0.3;
   }
   .bullets li::after {
     content: "";
@@ -186,35 +184,32 @@
     top: 8px;
     width: 8px;
     height: 5px;
-    border-left: 2px solid var(--gold-deep);
-    border-bottom: 2px solid var(--gold-deep);
+    border-left: 2px solid var(--paper);
+    border-bottom: 2px solid var(--paper);
     transform: rotate(-45deg);
   }
 
-  /* ---------- dark steps card ---------- */
-  .steps-card {
-    background: var(--ink);
-    border-radius: 24px;
-    padding: 44px 32px 38px;
-    margin: 34px 0;
-    color: var(--paper);
+  /* ---------- steps section (light) ---------- */
+  .steps-section {
+    padding: 6px 0 10px;
   }
-  .steps-card h2 {
+  .steps-section h2 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 21px;
+    font-size: 22px;
     margin: 0 0 30px;
-    color: var(--paper);
+    color: var(--ink);
+    text-align: center;
   }
   .steps-wrap {
     position: relative;
   }
   .steps-line {
     position: absolute;
-    left: 17.25px;
+    left: 18px;
     top: 0;
-    width: 1.5px;
-    background: rgba(251, 250, 246, 0.28);
+    width: 2px;
+    background: var(--cream-deep);
     z-index: 0;
   }
   .dark-steps {
@@ -251,12 +246,12 @@
     font-weight: 700;
     font-size: 16px;
     margin: 0 0 4px;
-    color: var(--paper);
+    color: var(--ink);
   }
   .dark-step p {
     margin: 0;
     font-size: 14.5px;
-    color: rgba(251, 250, 246, 0.72);
+    color: var(--ink-soft);
     line-height: 1.5;
   }
   .steps-tail {
@@ -265,21 +260,21 @@
     align-items: center;
     width: 36px;
   }
-  .tail-arrow { display: block; color: rgba(251, 250, 246, 0.4); }
+  .tail-arrow { display: block; color: var(--cream-deep); }
   .infinity-note {
     align-self: flex-start;
     margin: 8px 0 0;
     font-family: var(--serif);
     font-style: italic;
     font-size: 13.5px;
-    color: rgba(251, 250, 246, 0.55);
+    color: var(--ink-soft);
     white-space: nowrap;
   }
   .steps-outro {
     margin: 30px 0 0;
     font-size: 14px;
     line-height: 1.6;
-    color: rgba(251, 250, 246, 0.68);
+    color: var(--ink-soft);
     text-align: center;
   }
 
@@ -354,22 +349,41 @@
   /* ---------- footer ---------- */
   footer {
     text-align: center;
-    padding: 10px 0 50px;
+    padding: 10px 0 90px;
   }
-  footer .line1 {
-    font-size: 15px;
+  footer p {
+    font-size: 17px;
     color: var(--ink);
     margin: 0 0 6px;
+    line-height: 1.5;
   }
-  footer .line2 {
+  footer p:last-child { margin-bottom: 0; }
+  footer .sign {
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  .stores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 34px 0 4px;
+  }
+  .stores-label {
     font-size: 13px;
     color: var(--ink-soft);
-    margin: 0;
   }
+  .store-icon {
+    color: var(--ink-soft);
+    opacity: 0.65;
+    transition: opacity 0.15s ease;
+  }
+  .store-icon:hover { opacity: 1; }
 
   @media (max-width: 520px) {
     .wrap { padding: 0 22px; }
-    .steps-card, .next-card { padding: 32px 22px; border-radius: 20px; }
+    .propose, .next-card { padding: 32px 22px; border-radius: 20px; }
     .stats { gap: 24px 26px; }
   }
 </style>
@@ -378,15 +392,14 @@
 
 <header class="top wrap">
   <div class="bar">
-    <img src="images/punchlines_logo.png" alt="Punchlines" class="logo">
-    <span class="tag">PROGRAMME CREATORS</span>
+    <div class="punch-logo">Punch<br>lines.</div>
   </div>
 </header>
 
 <main class="wrap">
 
   <section class="hero">
-    <h1>On croit profondément au pouvoir de nos pensées.</h1>
+    <h1>On croit profondément au<br>pouvoir de nos pensées.</h1>
     <p class="lede">
       Punchlines, c'est une appli d'affirmations positives pensée pour ancrer une
       vraie habitude au quotidien, grâce à des affirmations personnalisées et des
@@ -422,7 +435,7 @@
     </ul>
   </section>
 
-  <div class="steps-card">
+  <div class="steps-section">
     <h2>Comment on avance ensemble</h2>
 
     <div class="steps-wrap">
@@ -459,9 +472,9 @@
       </ol>
       <div class="steps-tail">
         <svg class="tail-arrow" width="13" height="24" viewBox="0 0 13 24" aria-hidden="true">
-          <line x1="6.5" y1="0" x2="6.5" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="6.5" y1="17" x2="1" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="6.5" y1="17" x2="12" y2="11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="6.5" y1="0" x2="6.5" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="6.5" y1="17" x2="1" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="6.5" y1="17" x2="12" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <p class="infinity-note">(vers l'infini et l'au-delà)</p>
       </div>
@@ -489,11 +502,22 @@
     <p class="form-msg" id="formMsg"></p>
   </div>
 
+  <div class="stores">
+    <span class="stores-label">Disponible sur</span>
+    <a class="store-icon" href="https://apps.apple.com/app/apple-store/id6744821000?pt=125279170&ct=website&mt=8" target="_blank" rel="noopener" aria-label="App Store">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.536c-.03-3.06 2.497-4.53 2.61-4.6-1.424-2.08-3.636-2.365-4.42-2.398-1.883-.19-3.674 1.11-4.63 1.11-.958 0-2.428-1.083-3.99-1.053-2.053.03-3.944 1.194-5 3.037-2.133 3.698-.546 9.176 1.532 12.18 1.017 1.47 2.23 3.116 3.82 3.057 1.535-.062 2.114-.98 3.97-.98 1.856 0 2.38.98 4 .95 1.653-.03 2.7-1.5 3.71-2.98 1.17-1.71 1.65-3.37 1.68-3.45-.037-.017-3.22-1.237-3.25-4.9zM14.24 3.66c.84-1.02 1.41-2.44 1.25-3.86-1.21.05-2.68.81-3.55 1.83-.78.9-1.47 2.35-1.28 3.73 1.35.1 2.73-.68 3.58-1.7z"/></svg>
+    </a>
+    <a class="store-icon" href="https://play.google.com/store/apps/details?id=fr.harryjmg.punchlines" target="_blank" rel="noopener" aria-label="Google Play">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.35.35-.55.85-.55 1.5v15.8c0 .65.2 1.15.55 1.5l.1.08L12.6 12v-.2L3.7 2.52l-.1.08z"/><path d="M15.5 15l-2.9-2.9v-.2l2.9-2.9.07.04 3.44 1.96c.98.56.98 1.44 0 2l-3.44 1.96-.07.04z"/><path d="M15.57 14.96 12.6 12 3.7 21.48c.34.36.9.4 1.53.05l10.34-6.57"/><path d="M15.57 9.04 5.23 2.47c-.63-.35-1.19-.3-1.53.06L12.6 12l2.97-2.96z"/></svg>
+    </a>
+  </div>
+
 </main>
 
 <footer class="wrap">
-  <p class="line1">On espère t'avoir parmi nous !</p>
-  <p class="line2">À bientôt,<br>Harry &amp; l'équipe Punchlines</p>
+  <p>On espère t'avoir parmi nous !</p>
+  <p>À bientôt,</p>
+  <p class="sign">Harry &amp; l'équipe Punchlines</p>
 </footer>
 
 <script>
