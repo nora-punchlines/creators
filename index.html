@@ -221,6 +221,13 @@
     grid-template-columns: 36px 1fr;
     gap: 16px;
     align-items: start;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), filter 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .dark-step.in {
+    opacity: 1;
+    filter: blur(0);
   }
   .dark-step-num {
     width: 36px;
@@ -507,6 +514,33 @@
   <p>À bientôt,</p>
   <p class="sign">Harry &amp; l'équipe Punchlines</p>
 </footer>
+
+<script>
+  (function () {
+    var steps = document.querySelectorAll('.dark-step');
+    if (!steps.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      steps.forEach(function (s) { s.classList.add('in'); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var index = Array.prototype.indexOf.call(steps, el);
+          setTimeout(function () {
+            el.classList.add('in');
+          }, index * 140);
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -40px 0px' });
+
+    steps.forEach(function (s) { observer.observe(s); });
+  })();
+</script>
 
 <script>
   window.addEventListener('load', function () {
